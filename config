@@ -1,3 +1,5 @@
 [module/proton_connection_status]
 type = custom/script
-exec = p_status=$(protonvpn status); c_server=$(grep -oEi '[a-zA-Z]*#\w+' <<< "$p_status"); c_stat=$(grep -oEi '(Connected|Disconnected)' <<< "$p_status"); c_p_ip=$(grep -oEi '[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*' <<< "$p_status"); echo "$c_stat ($c_p_ip) $c_server"
+exec = ~/.config/polybar/proton_info.sh
+tail = true
+click-left = kill -USR1 %pid%
