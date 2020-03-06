@@ -9,7 +9,7 @@ trap "toggle" USR1
 
 while true; do
 
-    local_addr=$(hostname -I | sed 's/^[ \t]*//;s/[ \t]*$//');
+    local_addr=$(hostname -I | sed 's/^[ \t]*//;s/[ \t]*$//' | cut -d' ' -f1);
     proton_status=$(protonvpn status);
     current_server=$(grep -oEi '[a-zA-Z]*#\w+' <<< "$proton_status");
     current_status=$(grep -oEi '(Connected|Disconnected)' <<< "$proton_status");
