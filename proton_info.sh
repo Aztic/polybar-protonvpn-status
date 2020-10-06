@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 t=0
 
 toggle() {
